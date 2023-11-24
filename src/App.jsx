@@ -1,8 +1,11 @@
 import React from 'react'
+import HomeView from './core/layouts/views/HomeView'
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <HomeView/>
+    </>
   )
 }
 
