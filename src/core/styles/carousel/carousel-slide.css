@@ -1,0 +1,7 @@
+.carousel-slide{
+    height: 350px;
+    width: 250px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
