@@ -4,7 +4,8 @@ import '../../styles/nav.css'
 import { useAuth } from '../../auth/hook/useAuth'
 
 const Nav = () => {
-  const{logout} = useAuth();
+
+  const{logout, toggleConfig, showConfig} = useAuth();
   return (
     <div className='nav'>
         <img className='nav-logo' src={logo} alt="logo de cineverse"/>
@@ -13,11 +14,18 @@ const Nav = () => {
           <li><a href="#">Movies</a></li>
           <li><a href="#">Series</a></li>
         </ul>
-        <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="usuario 1" className='nav-user' />
-        <button onClick={logout}>logout</button>
-        </div>
-        
+        <div className='nav-item' onClick={toggleConfig}>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="usuario 1" className='nav-user' />
+          <p>User 1</p>         
+        </div> 
+        <div className={showConfig?'nav-dropdown-active':'nav-dropdown'}>
+            <ul className='nav-dropdown-list'>
+              <li>Cosa 1</li>
+              <li>Cosa 2</li>
+              <li>Cosa 3</li>
+              <li onClick={logout}>Cerrar sesion</li>
+            </ul>
+          </div>
 
     </div>
   )

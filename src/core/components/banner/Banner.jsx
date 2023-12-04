@@ -48,6 +48,7 @@ const Banner = () => {
     <div className='ban-container'>
       <h1 className='ban-title'>{data.title}</h1>
       <img className='ban-img' src={data.img} alt= {data.title} />
+      {/* <iframe src="" frameborder="0"></iframe> */}
     </div>
   )
 }
