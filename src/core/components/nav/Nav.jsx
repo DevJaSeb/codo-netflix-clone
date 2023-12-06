@@ -3,6 +3,7 @@ import logo from "../../../assets/logo.jpeg";
 import "../../styles/nav.css";
 import { useAuth } from "../../auth/hook/useAuth";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const { logout, toggleConfig, showConfig } = useAuth();
@@ -11,13 +12,13 @@ const Nav = () => {
       <img className="nav-logo" src={logo} alt="logo de cineverse" />
       <ul>
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#">Movies</a>
+          <Link to="/movies">Movies</Link>
         </li>
         <li>
-          <a href="#">Series</a>
+          <Link to="/series">Series</Link>
         </li>
       </ul>
       <div
@@ -46,7 +47,7 @@ const Nav = () => {
             <li className="nav-dropdown-help">Help Centre</li>
           </div>
           <div className="nav-dropdown-content logout">
-          <Icon icon="line-md:logout" color="white" />
+            <Icon icon="line-md:logout" color="white" />
             <li className="nav-dropdown-logout" onClick={logout}>
               Cerrar sesion
             </li>

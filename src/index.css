@@ -13,7 +13,7 @@ body {
 
 swiper-container::part(button-prev),
 swiper-container::part(button-next) {
-  color: white;
+  color: rgb(252, 5, 5);
   height: 30px;
   width: 30px;
 }

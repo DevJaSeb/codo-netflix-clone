@@ -15,6 +15,8 @@ export const tmdb_paths = {
         popular: "/movie/popular",
         top_rated: "/movie/top_rated",
         upcoming: "/movie/upcoming",
+        genres: "/genre/movie/list",
+        discover:"discover/movie?with_genres=",
       },
       tv: {
         popular: "/tv/popular",
