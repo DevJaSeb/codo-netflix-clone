@@ -1,6 +1,5 @@
 import { tmdbApi, tmdb_paths } from "../../dataSource/data_tmdb/tmdbApi";
 import { genreAdaper } from "./adapters/genreAdapter";
-import { movieGenreAdapter } from "./adapters/movieGenreAdapter";
 import { tmdbAdapter } from "./adapters/tmdbAdapter";
 
 export const getPopularMovies = async () => {
@@ -40,7 +39,7 @@ export const getMoviesByGenre = async () =>{
 
         const movies = await getMoviesGenre(genre.id);
         
-        return movieGenreAdapter(movies);
+        return tmdbAdapter(movies);
     }));
     return moviesByGenre;
 }

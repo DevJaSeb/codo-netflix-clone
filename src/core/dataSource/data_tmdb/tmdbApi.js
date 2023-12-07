@@ -22,6 +22,8 @@ export const tmdb_paths = {
         popular: "/tv/popular",
         top_rated: "/tv/top_rated",
         airing_today: "/tv/airing_today",
+        genres: "/genre/tv/list",
+        discover:"/discover/tv?with_genres=",
       },
       images: {
         poster: {

@@ -8,7 +8,10 @@ import {
 } from "../layouts/services/movieServices";
 import {
   getAiringTodaySeries,
+  getGenre,
   getPopularSeries,
+  getSerieByGenre,
+  getSerieGenre,
   getTopRatedSeries,
 } from "../layouts/services/tvServices";
 
@@ -59,7 +62,19 @@ const useMovieData = () => {
     data: moviesByGenre,
     error: moviesByGenreError,
     isLoading: moviesByGenreLoading,
-  } = useSWR("getMoviesByGenre", getMoviesByGenre)
+  } = useSWR("getMoviesByGenre", getMoviesByGenre);
+
+  const {
+    data: genre,
+    error: genreError,
+    isLoading: genreLoading,
+  } = useSWR("getGenre", getGenre);
+
+  const {
+    data: seriesByGenre,
+    error: seriesByGenreError,
+    isLoading: seriesByGenreLoading,
+  } = useSWR("getSeriesByGenre", getSerieByGenre )
   return {
     popularMovies,
     popularMoviesError,
@@ -83,6 +98,8 @@ const useMovieData = () => {
     genresError,
     genresLoading,
     moviesByGenre,
+    genre,
+    seriesByGenre
   };
 };
 

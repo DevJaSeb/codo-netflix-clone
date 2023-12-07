@@ -7,9 +7,7 @@ const MoviesView = () => {
   const {moviesByGenre, genres} = useMovieData();
   return(
     <>
-      <Nav style={{position:"fixed", top: 0}}
-        
-      />
+      <Nav/>
       <CarouselSection
         title = {genres[0].name}
         data = {moviesByGenre[0]}
