@@ -1,11 +1,11 @@
-import {  useRef } from 'react';
+import { useRef } from "react";
 
-
-export const Carousel = ({children}) => {
+export const Carousel = ({ children }) => {
   const swiperElRef = useRef(null);
 
   return (
     <swiper-container
+      id = "swiper"
       ref={swiperElRef}
       loop
       slides-per-view="6"

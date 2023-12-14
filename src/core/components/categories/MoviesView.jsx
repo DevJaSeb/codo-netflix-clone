@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../nav/Nav";
 import CarouselSection from "../carrousel/components/CarouselSection";
 import useMovieData from "../../hooks/useMovieData";
+import '../../styles/views/moviesView.css'
 
 const MoviesView = () => {
   const {moviesByGenre, genres} = useMovieData();
