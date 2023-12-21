@@ -1,26 +1,30 @@
-import React from 'react'
-import CarouselTitle from './CarouselTitle'
-import { Carousel } from '../Carousel'
-import CarouselSlide from './CarouselSlide'
-import '../../../styles/carousel/carousel-slide.css'
+import React from "react";
+import CarouselTitle from "./CarouselTitle";
+import { Carousel } from "../Carousel";
+import CarouselSlide from "./CarouselSlide";
+import "../../../styles/carousel/carousel-slide.css";
+import { Link } from "react-router-dom";
 
-const CarouselSection = ({title, data}) => {
+const CarouselSection = ({ title, data, type }) => {
   return (
-    <>
-        <CarouselTitle>{title}</CarouselTitle>
-        <Carousel>
-            {data?.map((e) => (
-                <CarouselSlide key={e.id}>
-                    <div className='carousel-slide'
-                    style={{
-                        backgroundImage: `url(${e.poster})`,
-                    }}>
-                    </div>
-                </CarouselSlide>
-            ))}
-        </Carousel>    
-    </>
-  )
-}
+    <div className="carousel-container">
+      <CarouselTitle>{title}</CarouselTitle>
+      <Carousel>
+        {data?.map((e) => (
+          <Link id={e.id} key={e.id} to={`/${type}/${e.id}`}>
+            <CarouselSlide key={e.id}>
+              <div
+                className="carousel-slide"
+                style={{
+                  backgroundImage: `url(${e.poster})`,
+                }}
+              ></div>
+            </CarouselSlide>
+          </Link>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
 
-export default CarouselSection
+export default CarouselSection;

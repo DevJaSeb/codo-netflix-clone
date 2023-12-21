@@ -1,5 +1,7 @@
 import useSWR from "swr";
 import {
+  getDetailsMovie,
+  getDetailsSeries,
   getGenres,
   getMoviesByGenre,
   getPopularMovies,
@@ -15,12 +17,13 @@ import {
   getTopRatedSeries,
 } from "../layouts/services/tvServices";
 
-const useMovieData = () => {
+const useMovieData = (id) => {
   const {
     data: popularMovies,
     error: popularMoviesError,
     isLoading: popularMoviesLoading,
   } = useSWR("getPopularMovies", getPopularMovies);
+
 
   const {
     data: topRatedMovies,
@@ -75,6 +78,18 @@ const useMovieData = () => {
     error: seriesByGenreError,
     isLoading: seriesByGenreLoading,
   } = useSWR("getSeriesByGenre", getSerieByGenre )
+
+  const{
+    data: detailsMovie,
+    error: detailsMovieError,
+    isLoading: detailsMovieLoading,
+  } = useSWR("/movie/"+id, getDetailsMovie)
+
+  const{
+    data:detailsSerie,
+    error:detailsSerieError,
+    isLoading:detailsSerieLoading
+  } = useSWR("/tv/"+id,getDetailsSeries)
   return {
     popularMovies,
     popularMoviesError,
@@ -99,8 +114,14 @@ const useMovieData = () => {
     genresLoading,
     moviesByGenre,
     genre,
-    seriesByGenre
+    seriesByGenre,
+    detailsMovie,
+    detailsMovieLoading,
+    detailsSerie,
+    detailsSerieLoading   
   };
 };
 
 export default useMovieData;
+
+// separalo en 3 hooks

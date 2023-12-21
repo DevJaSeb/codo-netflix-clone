@@ -5,6 +5,9 @@
   justify-content: space-between;
   padding: 10px 30px;
   background-color: #000000;
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
   }
 
 .nav ul {
