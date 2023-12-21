@@ -3,7 +3,7 @@ import "../../styles/views/detailView/components/headerView.css";
 import { Link } from "react-router-dom";
 
 const HeaderDetail = (props) => {
-  const { title, description } = props.details;
+  const { title } = props.details;
   return (
     <>
       <section className="header-container">

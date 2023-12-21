@@ -1,0 +1,35 @@
+.body-container {
+  width: 1400px;
+
+}
+
+.rating {
+  display: inline-block;
+  width: 18%;
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.description {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  padding: 0 30px;
+}
+
+.body-container .carousel-body-container .carousel-container {
+  position: relative;
+  top: 0;
+}
+.body-container .carousel-body-container .carousel-slide {
+  height: 350px;
+  width: 200px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.body-container .carousel-body-container .carousel-title {
+  background-color: transparent;
+}

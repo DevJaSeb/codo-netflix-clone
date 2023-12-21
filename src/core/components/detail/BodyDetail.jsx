@@ -1,24 +1,24 @@
 import React from "react";
-import useMovieData from "../../hooks/useMovieData";
 import CarouselSection from "../carrousel/components/CarouselSection";
+import "../../styles/views/detailView/components/bodyView.css";
 
 const BodyDetail = (props) => {
-  const {description, rating,similarMovies} = props.details;
-  console.log(similarMovies)
+  const { description, rating } = props.details;
+
   return (
-  <>
-    <article>
-      <span>⭐️ {rating}</span>
-      <p>{description}</p>
-      {similarMovies && (
+    <>
+      <article className="body-container">
+        <span className="rating">⭐️ {rating}</span>
+        <p className="description">{description}</p>
+        <div className="carousel-body-container">
           <CarouselSection
-            data={similarMovies}
-            type={"movies"}
+            title={"Similar"}
+            data={props.similar}
+            type={props.type}
           ></CarouselSection>
-        )}
-      <section></section>
-    </article>
-  </>
+        </div>
+      </article>
+    </>
   );
 };
 

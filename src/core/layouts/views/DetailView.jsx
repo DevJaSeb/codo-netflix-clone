@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import HeaderDetail from "../../components/detail/HeaderDetail";
 import "../../styles/views/detailView/detailView.css";
 import BodyDetail from "../../components/detail/BodyDetail";
@@ -13,11 +13,20 @@ const DetailView = () => {
     detailsSerie,
     detailsSerieLoading,
     similarMovies,
+    similarSeries,
   } = useMovieData(id);
- 
+
+  const imageUrlRef = useRef(null);
+
+  useEffect(() => {
+    const details = type ==="movies" ? detailsMovie : detailsSerie;
+    if(details){
+      imageUrlRef.current = details.backdrop;
+    }
+  },[type, detailsMovie, detailsSerie]);
 
   return (
-    <>
+    <div className="container-detail" style ={{backgroundImage: `url(${imageUrlRef.current})`}} >
       {type === "movies" && (
         <>
           {detailsMovieLoading && <div>Loading...</div>}
@@ -39,7 +48,9 @@ const DetailView = () => {
           {detailsMovieLoading && <div>Loading...</div>}
           {!detailsMovieLoading && (
             <BodyDetail
-              details={{detailsMovie,similarMovies}}
+              details={detailsMovie}
+              similar={similarMovies}
+              type={"movies"}
             ></BodyDetail>
           )}
         </>
@@ -48,11 +59,15 @@ const DetailView = () => {
         <>
           {detailsSerieLoading && <div>Loading...</div>}
           {!detailsSerieLoading && (
-            <BodyDetail details={detailsSerie}></BodyDetail>
+            <BodyDetail
+              details={detailsSerie}
+              similar={similarSeries}
+              type={"tvseries"}
+            ></BodyDetail>
           )}
         </>
       )}
-    </>
+    </div>
   );
 };
 export default DetailView;

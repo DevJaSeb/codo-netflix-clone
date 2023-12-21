@@ -63,3 +63,9 @@ export const getSimilarMovies = async (pathMovie) => {
 
   return tmdbAdapter(data);
 }
+
+export const getSimilarSeries = async (pathSerie) => {
+  const { data } = await tmdbApi(pathSerie);
+
+  return tmdbAdapter(data);
+}

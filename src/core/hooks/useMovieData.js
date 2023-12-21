@@ -98,6 +98,12 @@ const useMovieData = (id) => {
     isLoading:similarMoviesLoading
   } = useSWR("/movie/"+id+"/similar",getSimilarMovies)
 
+  const{
+    data:similarSeries,
+    error:similarSeriesError,
+    isLoading:similarSeriesLoading
+  } = useSWR("/tv/"+id+"/similar",getSimilarMovies)
+
 
   return {
     popularMovies,
@@ -128,7 +134,8 @@ const useMovieData = (id) => {
     detailsMovieLoading,
     detailsSerie,
     detailsSerieLoading,
-    similarMovies   
+    similarMovies,
+    similarSeries   
   };
 };
 
