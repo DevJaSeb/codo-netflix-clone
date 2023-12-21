@@ -46,8 +46,14 @@ export const getMoviesByGenre = async () => {
   return moviesByGenre;
 };
 
-export const getDetailsMovie = async (id) => {
-  const { data } = await tmdbApi(tmdb_paths.movies.movie + id);
+export const getDetailsMovie = async (pathMovie) => {
+  const { data } = await tmdbApi(pathMovie);
+
+  return detailAdapter(data) ;
+};
+
+export const getDetailsSeries = async (pathSerie) => {
+   const { data } = await tmdbApi(pathSerie);
 
   return detailAdapter(data) ;
 };

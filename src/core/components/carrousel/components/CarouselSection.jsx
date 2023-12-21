@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const CarouselSection = ({ title, data, type }) => {
   return (
-    <>
+    <div className="carousel-container">
       <CarouselTitle>{title}</CarouselTitle>
       <Carousel>
         {data?.map((e) => (
@@ -23,7 +23,7 @@ const CarouselSection = ({ title, data, type }) => {
           </Link>
         ))}
       </Carousel>
-    </>
+    </div>
   );
 };
 

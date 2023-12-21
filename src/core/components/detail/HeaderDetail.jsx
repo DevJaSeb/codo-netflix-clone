@@ -2,7 +2,7 @@ import React, { Children } from 'react'
 import '../../styles/views/detailView/components/headerView.css'
 
 const HeaderDetail = (props) => {
-  const {title, description} = props.detailsMovie
+  const {title, description} = props.details
   return (
   <>
   <span>◀️</span>

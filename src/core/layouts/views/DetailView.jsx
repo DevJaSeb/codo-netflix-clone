@@ -6,29 +6,39 @@ import useMovieData from "../../hooks/useMovieData";
 import { useParams } from "react-router-dom";
 
 const DetailView = () => {
-  const { id } = useParams();
-  const { detailsMovie, detailsMovieLoading } = useMovieData(id);
+  const { type, id } = useParams();
+  const { detailsMovie, detailsMovieLoading, detailsSerie, detailsSerieLoading } = useMovieData(id);
+
   return (
     <>
-      {detailsMovieLoading && <div>Loading...</div>}
-      {!detailsMovieLoading && (
-        <HeaderDetail detailsMovie={detailsMovie}></HeaderDetail>
+      {type === "movies" && (
+        <>
+          {detailsMovieLoading && <div>Loading...</div>}
+          {!detailsMovieLoading && (
+            <HeaderDetail details={detailsMovie}></HeaderDetail>
+          )}
+        </>
       )}
-
+      {type === "tvseries" && (
+        <>
+          {detailsSerieLoading && <div>Loading...</div>}
+          {!detailsSerieLoading && (
+            <HeaderDetail details={detailsSerie}></HeaderDetail>
+          )}
+        </>
+      )}
       <BodyDetail />
     </>
   );
 };
-
 export default DetailView;
-
 
 // return (
 //   <>
-//  
-//       <HeaderDetail 
+//
+//       <HeaderDetail
 //       title={detailsMovie?.title}></HeaderDetail>
-//    
+//
 
 //     <BodyDetail />
 //   </>

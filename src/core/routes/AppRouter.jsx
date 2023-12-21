@@ -33,7 +33,7 @@ export const AppRouter = createBrowserRouter([
     ),
   },
   {
-    path: "/series",
+    path: "/tvseries",
     element: (
       <PrivateRoute>
         <SeriesView />

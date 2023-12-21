@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import {
   getDetailsMovie,
+  getDetailsSeries,
   getGenres,
   getMoviesByGenre,
   getPopularMovies,
@@ -82,7 +83,13 @@ const useMovieData = (id) => {
     data: detailsMovie,
     error: detailsMovieError,
     isLoading: detailsMovieLoading,
-  } = useSWR(id, getDetailsMovie)
+  } = useSWR("/movie/"+id, getDetailsMovie)
+
+  const{
+    data:detailsSerie,
+    error:detailsSerieError,
+    isLoading:detailsSerieLoading
+  } = useSWR("/tv/"+id,getDetailsSeries)
   return {
     popularMovies,
     popularMoviesError,
@@ -109,8 +116,12 @@ const useMovieData = (id) => {
     genre,
     seriesByGenre,
     detailsMovie,
-    detailsMovieLoading
+    detailsMovieLoading,
+    detailsSerie,
+    detailsSerieLoading   
   };
 };
 
 export default useMovieData;
+
+// separalo en 3 hooks

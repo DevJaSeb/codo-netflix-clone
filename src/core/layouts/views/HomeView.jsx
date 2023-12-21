@@ -33,17 +33,17 @@ const HomeView = () => {
       <CarouselSection
         title={"Popular Movies"}
         data={popularMovies}
-        type={"movie"}
+        type={"movies"}
       ></CarouselSection>
       <CarouselSection
         title={"Top Rated Movies"}
         data={topRatedMovies}
-        type={"movie"}
+        type={"movies"}
       ></CarouselSection>
       <CarouselSection
         title={"Upcoming Movies"}
         data={upcomingMovies}
-        type={"movie"}
+        type={"movies"}
       ></CarouselSection>
       <CarouselSection
         title={"Popular Series"}

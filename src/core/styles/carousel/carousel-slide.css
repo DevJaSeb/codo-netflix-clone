@@ -5,3 +5,8 @@
     background-position: center;
     background-repeat: no-repeat;   
 }
+
+.carousel-container{
+    top: 100px;
+    position: relative;
+}

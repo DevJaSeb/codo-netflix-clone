@@ -18,7 +18,7 @@ const Nav = () => {
           <Link to="/movies">Movies</Link>
         </li>
         <li>
-          <Link to="/series">Series</Link>
+          <Link to="/tvseries">Series</Link>
         </li>
       </ul>
       <div
