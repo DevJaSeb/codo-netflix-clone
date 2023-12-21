@@ -7,7 +7,14 @@ import { useParams } from "react-router-dom";
 
 const DetailView = () => {
   const { type, id } = useParams();
-  const { detailsMovie, detailsMovieLoading, detailsSerie, detailsSerieLoading } = useMovieData(id);
+  const {
+    detailsMovie,
+    detailsMovieLoading,
+    detailsSerie,
+    detailsSerieLoading,
+    similarMovies,
+  } = useMovieData(id);
+ 
 
   return (
     <>
@@ -27,7 +34,24 @@ const DetailView = () => {
           )}
         </>
       )}
-      <BodyDetail />
+      {type === "movies" && (
+        <>
+          {detailsMovieLoading && <div>Loading...</div>}
+          {!detailsMovieLoading && (
+            <BodyDetail
+              details={{detailsMovie,similarMovies}}
+            ></BodyDetail>
+          )}
+        </>
+      )}
+      {type === "tvseries" && (
+        <>
+          {detailsSerieLoading && <div>Loading...</div>}
+          {!detailsSerieLoading && (
+            <BodyDetail details={detailsSerie}></BodyDetail>
+          )}
+        </>
+      )}
     </>
   );
 };

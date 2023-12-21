@@ -7,7 +7,7 @@ export const Carousel = ({ children }) => {
     <swiper-container
       id = "swiper"
       ref={swiperElRef}
-      loop
+      loop ={true}
       slides-per-view="6"
       navigation="true"
     >

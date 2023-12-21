@@ -1,28 +1,28 @@
-import React, { Children } from 'react'
-import '../../styles/views/detailView/components/headerView.css'
+import React, { Children } from "react";
+import "../../styles/views/detailView/components/headerView.css";
+import { Link } from "react-router-dom";
 
 const HeaderDetail = (props) => {
-  const {title, description} = props.details
+  const { title, description } = props.details;
   return (
-  <>
-  <span>◀️</span>
-  <h2>{title}</h2>
-  <p>{description}</p>
-  
-  </>
-  )
-}
+    <>
+      <section className="header-container">
+        <span className="back-button-container">
+          <Link className="back-button" to="/">{'<'}</Link>
+        </span>
+        <h1 className="title-header">{title}</h1>
+      </section>
+    </>
+  );
+};
 
-export default HeaderDetail
-
+export default HeaderDetail;
 
 // const HeaderDetail = (props) => {
 //   return (
 //   <>
 //   <span>◀️</span>
-//   <h2>{props.title}</h2>  
+//   <h2>{props.title}</h2>
 //   </>
 //   )
 // }
-
-

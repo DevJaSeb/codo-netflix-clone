@@ -25,7 +25,6 @@ const HomeView = () => {
     airingTodaySeriesError,
     airingTodaySeriesLoading,
   } = useMovieData();
-
   return (
     <>
       <Nav />

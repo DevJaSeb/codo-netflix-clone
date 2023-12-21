@@ -6,6 +6,10 @@
     background-repeat: no-repeat;   
 }
 
+.carousel-slide:hover{
+    cursor: pointer;
+}
+
 .carousel-container{
     top: 100px;
     position: relative;

@@ -5,6 +5,7 @@ import {
   getGenres,
   getMoviesByGenre,
   getPopularMovies,
+  getSimilarMovies,
   getTopRatedMovies,
   getUpcomingMovies,
 } from "../layouts/services/movieServices";
@@ -90,6 +91,14 @@ const useMovieData = (id) => {
     error:detailsSerieError,
     isLoading:detailsSerieLoading
   } = useSWR("/tv/"+id,getDetailsSeries)
+
+  const{
+    data:similarMovies,
+    error:similarMoviesError,
+    isLoading:similarMoviesLoading
+  } = useSWR("/movie/"+id+"/similar",getSimilarMovies)
+
+
   return {
     popularMovies,
     popularMoviesError,
@@ -118,7 +127,8 @@ const useMovieData = (id) => {
     detailsMovie,
     detailsMovieLoading,
     detailsSerie,
-    detailsSerieLoading   
+    detailsSerieLoading,
+    similarMovies   
   };
 };
 
