@@ -33,26 +33,32 @@ const HomeView = () => {
       <CarouselSection
         title={"Popular Movies"}
         data={popularMovies}
+        type={"movie"}
       ></CarouselSection>
       <CarouselSection
         title={"Top Rated Movies"}
         data={topRatedMovies}
+        type={"movie"}
       ></CarouselSection>
       <CarouselSection
         title={"Upcoming Movies"}
         data={upcomingMovies}
+        type={"movie"}
       ></CarouselSection>
       <CarouselSection
         title={"Popular Series"}
         data={popularSeries}
+        type={"tvseries"}
       ></CarouselSection>
       <CarouselSection
         title={"Top Rated Series"}
         data={topRatedSeries}
+        type={"tvseries"}
       ></CarouselSection>
       <CarouselSection
         title={"Airing Today Series"}
         data={airingTodaySeries}
+        type={"tvseries"}
       ></CarouselSection>
     </>
   );

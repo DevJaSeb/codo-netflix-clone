@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import {
+  getDetailsMovie,
   getGenres,
   getMoviesByGenre,
   getPopularMovies,
@@ -75,6 +76,12 @@ const useMovieData = () => {
     error: seriesByGenreError,
     isLoading: seriesByGenreLoading,
   } = useSWR("getSeriesByGenre", getSerieByGenre )
+
+  const{
+    data: detailsMovie,
+    error: detailsMovieError,
+    isLoading: detailsMovieLoading,
+  } = useSWR("12", getDetailsMovie)
   return {
     popularMovies,
     popularMoviesError,
@@ -99,7 +106,8 @@ const useMovieData = () => {
     genresLoading,
     moviesByGenre,
     genre,
-    seriesByGenre
+    seriesByGenre,
+    detailsMovie
   };
 };
 

@@ -1,4 +1,5 @@
 import { tmdbApi, tmdb_paths } from "../../dataSource/data_tmdb/tmdbApi";
+import { detailAdapter } from "./adapters/detailadapter";
 import { genreAdaper } from "./adapters/genreAdapter";
 import { tmdbAdapter } from "./adapters/tmdbAdapter";
 
@@ -29,17 +30,26 @@ export const getGenres = async () => {
 export const getMoviesGenre = async (genreId) => {
   const { data } = await tmdbApi(tmdb_paths.movies.discover + genreId);
 
-return data;
+  return data;
 };
 
-export const getMoviesByGenre = async () =>{
-    const genres = await getGenres();
+export const getMoviesByGenre = async () => {
+  const genres = await getGenres();
 
-    const moviesByGenre = await Promise.all( genres.map(async (genre) =>{
+  const moviesByGenre = await Promise.all(
+    genres.map(async (genre) => {
+      const movies = await getMoviesGenre(genre.id);
 
-        const movies = await getMoviesGenre(genre.id);
-        
-        return tmdbAdapter(movies);
-    }));
-    return moviesByGenre;
-}
+      return tmdbAdapter(movies);
+    })
+  );
+  return moviesByGenre;
+};
+
+export const getDetailsMovie = async (id) => {
+  const { data } = await tmdbApi(tmdb_paths.movies.movie + id);
+  console.log(detailAdapter(data))
+
+
+  return detailAdapter(data) ;
+};
