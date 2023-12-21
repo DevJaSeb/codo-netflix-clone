@@ -23,6 +23,7 @@ const useMovieData = () => {
     isLoading: popularMoviesLoading,
   } = useSWR("getPopularMovies", getPopularMovies);
 
+  
   const {
     data: topRatedMovies,
     error: topRatedMoviesError,
