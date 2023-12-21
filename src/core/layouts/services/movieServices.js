@@ -48,8 +48,6 @@ export const getMoviesByGenre = async () => {
 
 export const getDetailsMovie = async (id) => {
   const { data } = await tmdbApi(tmdb_paths.movies.movie + id);
-  console.log(detailAdapter(data))
-
 
   return detailAdapter(data) ;
 };

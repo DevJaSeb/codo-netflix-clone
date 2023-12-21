@@ -16,14 +16,14 @@ import {
   getTopRatedSeries,
 } from "../layouts/services/tvServices";
 
-const useMovieData = () => {
+const useMovieData = (id) => {
   const {
     data: popularMovies,
     error: popularMoviesError,
     isLoading: popularMoviesLoading,
   } = useSWR("getPopularMovies", getPopularMovies);
 
-  
+
   const {
     data: topRatedMovies,
     error: topRatedMoviesError,
@@ -82,7 +82,7 @@ const useMovieData = () => {
     data: detailsMovie,
     error: detailsMovieError,
     isLoading: detailsMovieLoading,
-  } = useSWR("12", getDetailsMovie)
+  } = useSWR(id, getDetailsMovie)
   return {
     popularMovies,
     popularMoviesError,
@@ -108,7 +108,8 @@ const useMovieData = () => {
     moviesByGenre,
     genre,
     seriesByGenre,
-    detailsMovie
+    detailsMovie,
+    detailsMovieLoading
   };
 };
 
