@@ -8,7 +8,9 @@ const HeaderDetail = (props) => {
     <>
       <section className="header-container">
         <span className="back-button-container">
-          <Link className="back-button" to="/">{'<'}</Link>
+          <Link className="back-button" to="/">
+            {"<"}
+          </Link>
         </span>
         <h1 className="title-header">{title}</h1>
       </section>

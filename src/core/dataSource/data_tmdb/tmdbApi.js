@@ -1,54 +1,53 @@
 import axios from "axios";
 
-const APIKEY = import.meta.env.VITE_APP_API_KEY 
+const APIKEY = import.meta.env.VITE_APP_API_KEY;
 
 export const tmdbApi = axios.create({
-    baseURL: "https://api.themoviedb.org/3",
-    params: {
-        api_key: APIKEY,
-        language: "es-ES",
-    },
+  baseURL: "https://api.themoviedb.org/3",
+  params: {
+    api_key: APIKEY,
+    language: "es-ES",
+  },
 });
 
 export const tmdb_paths = {
-    movies: {
-        popular: "/movie/popular",
-        top_rated: "/movie/top_rated",
-        upcoming: "/movie/upcoming",
-        genres: "/genre/movie/list",
-        discover:"discover/movie?with_genres=",
-        movie:"/movie/",
+  movies: {
+    popular: "/movie/popular",
+    top_rated: "/movie/top_rated",
+    upcoming: "/movie/upcoming",
+    genres: "/genre/movie/list",
+    discover: "discover/movie?with_genres=",
+    movie: "/movie/",
+  },
+  tv: {
+    popular: "/tv/popular",
+    top_rated: "/tv/top_rated",
+    airing_today: "/tv/airing_today",
+    genres: "/genre/tv/list",
+    discover: "/discover/tv?with_genres=",
+    serie: "/tv/",
+  },
+  images: {
+    poster: {
+      sizes: {
+        w92: "/w92",
+        w154: "/w154",
+        w185: "/w185",
+        w342: "/w342",
+        w500: "/w500",
+        w780: "/w780",
+        original: "/original",
       },
-      tv: {
-        popular: "/tv/popular",
-        top_rated: "/tv/top_rated",
-        airing_today: "/tv/airing_today",
-        genres: "/genre/tv/list",
-        discover:"/discover/tv?with_genres=",
-        serie:"/tv/",
+      url: "https://image.tmdb.org/t/p",
+    },
+    backdrop: {
+      sizes: {
+        w300: "/w300",
+        w780: "/w780",
+        w1280: "/w1280",
+        original: "/original",
       },
-      images: {
-        poster: {
-          sizes: {
-            w92: "/w92",
-            w154: "/w154",
-            w185: "/w185",
-            w342: "/w342",
-            w500: "/w500",
-            w780: "/w780",
-            original: "/original",
-          },
-          url: "https://image.tmdb.org/t/p",
-        },
-        backdrop: {
-          sizes: {
-            w300: "/w300",
-            w780: "/w780",
-            w1280: "/w1280",
-            original: "/original",
-          },
-          url: "https://image.tmdb.org/t/p",
-        },
-      },
+      url: "https://image.tmdb.org/t/p",
+    },
+  },
 };
-
